@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pantallasmuertas/Business/ProviderDataPages.dart';
 import 'package:pantallasmuertas/Pages/PageAccount.dart';
 import 'package:pantallasmuertas/Pages/PageCallCenter.dart';
+import 'package:pantallasmuertas/Pages/PageDetallePedido.dart';
 import 'package:pantallasmuertas/Pages/PageHistorial.dart';
 import 'package:pantallasmuertas/Pages/PagePedidos.dart';
 import 'package:pantallasmuertas/Pages/PageTurnos.dart';
+import 'package:pantallasmuertas/Widgets/AlertPage.dart';
 import 'package:pantallasmuertas/Widgets/AppBarWidget.dart';
 import 'package:pantallasmuertas/Widgets/BottomBarWidget.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +23,21 @@ class HomePage extends StatelessWidget {
         ),
         body: _bodyPage(context),
         bottomNavigationBar: BottomBarWidget(),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () => _showDialog(context),
+          label: Text("simulacion de\nnotificacion"),
+        ),
       ),
+    );
+  }
+
+  _showDialog(BuildContext context){
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertPage();
+      }
     );
   }
 
@@ -42,6 +58,9 @@ class HomePage extends StatelessWidget {
         break;
       case "PageTurnos":
         return PageTurnos();
+        break;
+      case "PageDetallePedido":
+        return PageDetallePedido();
         break;
       default:
     }
