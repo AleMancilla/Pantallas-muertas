@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 
 class ProviderDataPages with ChangeNotifier{
 
-  int _indexPage;
-  int get indexPage => this._indexPage;
-  set indexPage(int i){
+  String _indexPage = "PageAccount";
+  String get indexPage => this._indexPage;
+  set indexPage(String i){
     this._indexPage = i;
     notifyListeners();
   }
